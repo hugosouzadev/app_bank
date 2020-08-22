@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   app:
     container_name: bank
@@ -7,7 +7,10 @@ services:
       dockerfile: Dockerfile
     privileged: true
     ports:
-      - '81:80'
+      - "81:80"
+    networks:
+      appnetwork:
+        ipv4_address: 172.21.0.2
     env_file:
       - ./infra/app/.env
     depends_on:
@@ -19,5 +22,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_NAME_DATABASE}
+    networks:
+      appnetwork:
+        ipv4_address: 172.21.0.3
     ports:
       - "${MYSQL_PORT}:3306"
+networks:
+  appnetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.21.0.4/24"
