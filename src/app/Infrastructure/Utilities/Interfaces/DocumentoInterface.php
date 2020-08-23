@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Interfaces;
+namespace App\Infrastructure\Utilities\Interfaces;
 
 interface DocumentoInterface
 {

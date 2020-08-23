@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Domain\Services\TransferenciaService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
 class UsuarioController extends Controller

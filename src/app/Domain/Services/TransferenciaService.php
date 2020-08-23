@@ -4,9 +4,8 @@ namespace App\Domain\Services;
 
 use App\Domain\Entities\Usuario\Comum;
 use App\Domain\Entities\Usuario\Usuario;
-use App\Domain\Interfaces\TransferenciaInterface;
+use App\Infrastructure\Utilities\Interfaces\TransferenciaInterface;
 use DomainException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
 
 class TransferenciaService implements TransferenciaInterface

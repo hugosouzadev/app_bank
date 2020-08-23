@@ -2,7 +2,7 @@
 
 namespace App\Domain\ValueObjects;
 
-use App\Domain\Interfaces\DocumentoInterface;
+use App\Infrastructure\Utilities\Interfaces\DocumentoInterface;
 
 class CNPJ implements DocumentoInterface
 {

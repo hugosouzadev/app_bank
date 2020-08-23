@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Domain\Interfaces;
+namespace App\Infrastructure\Utilities\Interfaces;
 
 use App\Domain\Entities\Usuario\Usuario;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 interface UsuarioInterface
