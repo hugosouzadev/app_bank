@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\DB;
 class TransferenciaService implements TransferenciaInterface
 {
     /** @var int $pagador id do usuário pagado */
-    private $idPagador;
+    private int $idPagador;
 
     /** @var int $benificiario id do usuário benificiario */
-    private $idBenificiario;
+    private int $idBenificiario;
 
-    /** @var int $valor valor a ser depositado */
-    private $valor;
+    /** @var floar $valor valor a ser depositado */
+    private float $valor;
 
     public function __construct(int $pagador, int $benificiario, float $valor)
     {
@@ -39,7 +39,7 @@ class TransferenciaService implements TransferenciaInterface
 
             $benificiario = (new Usuario())->buscaPorId($this->idBenificiario);
 
-            if ($pagador->usuarioTipo_id != Comum::TIPO) {
+            if ($pagador->usuarioTipoId != Comum::TIPO) {
                 throw new DomainException(
                     "Lojista não pode realizar transferencias"
                 );

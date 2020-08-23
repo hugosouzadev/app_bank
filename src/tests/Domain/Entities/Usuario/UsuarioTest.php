@@ -50,7 +50,7 @@ class UsuarioTest extends TransactionTestCase
         $usuarioCarteira = $usuario->buscaCarteira()->first();
 
         $this->assertNotEmpty($usuarioCarteira);
-        $this->assertEquals($idUsuario, $usuarioCarteira->usuarios_id);
+        $this->assertEquals($idUsuario, $usuarioCarteira->usuarioId);
     }
 
     public function testSacarComValorPositivo()

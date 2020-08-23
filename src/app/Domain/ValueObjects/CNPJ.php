@@ -8,7 +8,7 @@ use DomainException;
 class CNPJ implements DocumentoInterface
 {
     /** @var string $cnpj */
-    public $cnpj;
+    public string $cnpj;
 
     public function __construct(string $documento)
     {

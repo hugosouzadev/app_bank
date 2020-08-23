@@ -38,7 +38,7 @@ class UsuariosSeeder extends Seeder
                 'nomeCompleto' => "usuario$i bank",
                 'documento' => $documento,
                 'email' => "usuario$i@bank.com.br",
-                'usuarioTipo_id' => $tipoUsuario,
+                'usuarioTipoId' => $tipoUsuario,
                 'senha' => '123321'
             ]);
 
@@ -46,7 +46,7 @@ class UsuariosSeeder extends Seeder
 
             Carteira::create([
                 'saldo' => random_int(500, 1000),
-                'usuarios_id' => $usuario->id
+                'usuarioId' => $usuario->id
             ])->save();
         }
     }

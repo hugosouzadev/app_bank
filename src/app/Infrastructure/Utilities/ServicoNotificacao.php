@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\RequestException;
 class ServicoNotificacao implements NotificacaoInterface
 {
     /** @var string $host */
-    private $host;
+    private string $host;
 
     public function __construct()
     {

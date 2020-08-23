@@ -18,13 +18,13 @@ class Usuario extends Model implements UsuarioInterface
         'nomeCompleto',
         'documento',
         'email',
-        'usuario_tipo_id',
-        'senha'
+        'senha',
+        'usuarioTipoId'
     ];
 
     public function buscaCarteira(): HasOne
     {
-        return $this->hasOne(\App\Domain\Entities\Carteira\Carteira::class, 'usuarios_id');
+        return $this->hasOne(\App\Domain\Entities\Carteira\Carteira::class, 'usuarioId');
     }
 
     public function buscaPorId(int $id): Usuario

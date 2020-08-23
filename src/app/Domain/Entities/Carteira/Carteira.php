@@ -8,6 +8,6 @@ class Carteira extends Model
 {
     protected $fillable = [
         'saldo',
-        'usuario_id'
+        'usuarioId'
     ];
 }

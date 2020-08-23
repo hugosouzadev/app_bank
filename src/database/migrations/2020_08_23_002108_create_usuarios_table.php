@@ -19,7 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('documento')->nullable();
             $table->string('email', 255)->unique();
             $table->string('senha');
-            $table->foreignId('usuarioTipo_id');
+            $table->foreignId('usuarioTipoId');
             $table->timestamps();
         });
     }
