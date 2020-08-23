@@ -8,6 +8,7 @@ class Comum extends Usuario
 
     public function transfere(Usuario $beneficiario, float $valor): void
     {
+        $this->validaValor($valor);
         $this->saca($valor);
         $this->deposita($beneficiario, $valor);
     }

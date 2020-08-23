@@ -2,6 +2,7 @@
 
 namespace App\Domain\Entities\Usuario;
 
+use App\Domain\Traits\UsuarioTrait;
 use App\Infrastructure\Interfaces\UsuarioInterface;
 use DomainException;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Usuario extends Model implements UsuarioInterface
 {
+    use UsuarioTrait;
+
     protected $table = 'usuarios';
 
     protected $fillable = [
@@ -37,6 +40,8 @@ class Usuario extends Model implements UsuarioInterface
 
     public function saca(float $valor): void
     {
+        $this->validaValor($valor);
+
         $carteira = $this->buscaCarteira()->first();
 
         if ($carteira->saldo < $valor) {
@@ -50,6 +55,8 @@ class Usuario extends Model implements UsuarioInterface
 
     public function deposita(Usuario $beneficiario, float $valor): void
     {
+        $this->validaValor($valor);
+
         $carteira = $beneficiario->buscaCarteira()->first();
 
         $carteira->saldo += $valor;

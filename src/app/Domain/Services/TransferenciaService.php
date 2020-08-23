@@ -35,10 +35,6 @@ class TransferenciaService implements TransferenciaInterface
     public function processaTransferencia(): array
     {
         try {
-            if ($this->valor < 0) {
-                throw new DomainException('Não é possivel transferir valor negativo');
-            };
-
             $pagador = (new Comum())->buscaPorId($this->idPagador);
 
             $benificiario = (new Usuario())->buscaPorId($this->idBenificiario);
