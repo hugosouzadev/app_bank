@@ -13,9 +13,10 @@ class CreateCarteiraTable extends Migration
      */
     public function up()
     {
-        Schema::create('carteira', function (Blueprint $table) {
+        Schema::create('carteiras', function (Blueprint $table) {
             $table->id();
             $table->decimal('saldo', 10, 2);
+            $table->foreignId('usuarios_id');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateCarteiraTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carteira');
+        Schema::dropIfExists('carteiras');
     }
 }
