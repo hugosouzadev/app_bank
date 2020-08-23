@@ -16,7 +16,7 @@ class CreateCarteiraTable extends Migration
         Schema::create('carteiras', function (Blueprint $table) {
             $table->id();
             $table->decimal('saldo', 10, 2);
-            $table->foreignId('usuarios_id');
+            $table->foreignId('usuario_id');
             $table->timestamps();
         });
     }

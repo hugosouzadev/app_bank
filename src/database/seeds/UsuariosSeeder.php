@@ -1,10 +1,10 @@
 <?php
 
-use App\Domain\Entities\Carteira;
-use App\Domain\Entities\Usuario;
+use App\Domain\Entities\Carteira\Carteira;
+use App\Domain\Entities\Usuario\Usuario;
 use Illuminate\Database\Seeder;
 
-class UsuarioSeeder extends Seeder
+class UsuariosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
