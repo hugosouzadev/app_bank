@@ -14,7 +14,7 @@ class UsuariosSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i <= 100; $i++) {
-            $tipoUsuario =  random_int(1, 2);
+            $tipoUsuario = ($i % 2 == 0) ? 1 : 2;
 
             $documento = ($tipoUsuario === 1) ?
                 sprintf(
