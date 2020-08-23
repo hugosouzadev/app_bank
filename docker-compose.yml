@@ -1,23 +1,24 @@
 version: "3"
 services:
   app:
-    container_name: bank
+    container_name: InstantTransfer
     build:
       context: ./infra/app
       dockerfile: Dockerfile
+    env_file:
+      - ./infra/app/.env
     privileged: true
-    ports:
-      - "81:80"
     networks:
       appnetwork:
         ipv4_address: 172.21.0.2
-    env_file:
-      - ./infra/app/.env
+    ports:
+      - "81:80"
     depends_on:
       - mysql
     volumes:
       - ./src:/var/www/app
   mysql:
+    container_name: InstantTransfer-db
     image: mysql:8.0.17
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -26,7 +27,7 @@ services:
       appnetwork:
         ipv4_address: 172.21.0.3
     ports:
-      - "${MYSQL_PORT}:3306"
+      - "${MYSQL_EXTERNAL_PORT}:3306"
 networks:
   appnetwork:
     ipam:
