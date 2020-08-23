@@ -21,8 +21,9 @@ RUN docker-php-ext-install mysqli pdo_mysql
 # Instalar composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copiando arquivo de configuração do apache
+# Copiando arquivo de configuração do apache e ativando rewrite
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN a2enmod rewrite 
 
 # Setar diretorio de trabalho
 WORKDIR /var/www/app
