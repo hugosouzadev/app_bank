@@ -2,7 +2,7 @@
 
 namespace App\Domain\Entities\Usuario;
 
-use App\Infrastructure\Utilities\Interfaces\UsuarioInterface;
+use App\Infrastructure\Interfaces\UsuarioInterface;
 use DomainException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;

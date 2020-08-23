@@ -2,7 +2,7 @@
 
 namespace App\Domain\ValueObjects;
 
-use App\Infrastructure\Utilities\Interfaces\DocumentoInterface;
+use App\Infrastructure\Interfaces\DocumentoInterface;
 
 class CPF implements DocumentoInterface
 {

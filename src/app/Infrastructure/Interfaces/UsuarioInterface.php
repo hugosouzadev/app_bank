@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Utilities\Interfaces;
+namespace App\Infrastructure\Interfaces;
 
 use App\Domain\Entities\Usuario\Usuario;
 use Illuminate\Database\Eloquent\Relations\HasOne;

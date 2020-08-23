@@ -4,7 +4,9 @@ namespace App\Domain\Services;
 
 use App\Domain\Entities\Usuario\Comum;
 use App\Domain\Entities\Usuario\Usuario;
-use App\Infrastructure\Utilities\Interfaces\TransferenciaInterface;
+use App\Infrastructure\Interfaces\TransferenciaInterface;
+use App\Infrastructure\Utilities\AutorizadorExterno;
+use App\Infrastructure\Utilities\ServicoNotificacao;
 use DomainException;
 use Illuminate\Support\Facades\DB;
 
@@ -49,7 +51,27 @@ class TransferenciaService implements TransferenciaInterface
 
             DB::beginTransaction();
 
+            $autorizadorExterno = new AutorizadorExterno();
+            $resposta = $autorizadorExterno->validaTransferencia();
+
+            if ($resposta['httpStatus'] != 200) {
+                if (isset($resposta['corpoRequisicao'])) {
+                    throw new \DomainException(sprintf('Falha na transfêrencia, status do autorizador: %s', json_encode($resposta['corpoRequisicao'])));
+                }
+            }
+
             $pagador->transfere($benificiario, $this->valor);
+
+
+            $servicoNotificao = new ServicoNotificacao();
+
+            $resposta = $servicoNotificao->enviaNotificacao();
+
+            if ($resposta['httpStatus'] != 200) {
+                if (isset($resposta['corpoRequisicao'])) {
+                    throw new \DomainException(sprintf('Falha ao enviar notificao: %s', json_encode($resposta['corpoRequisicao'])));
+                }
+            }
 
             DB::commit();
 
@@ -64,6 +86,7 @@ class TransferenciaService implements TransferenciaInterface
                 'mensagem' => $e->getMessage()
             ];
         } catch (\Throwable $th) {
+            throw $th;
             DB::rollBack();
             return [
                 'status' => false,
