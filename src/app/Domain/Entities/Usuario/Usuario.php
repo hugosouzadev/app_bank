@@ -2,7 +2,6 @@
 
 namespace App\Domain\Entities\Usuario;
 
-use App\Domain\Traits\UsuarioTrait;
 use App\Infrastructure\Interfaces\UsuarioInterface;
 use DomainException;
 use Illuminate\Database\Eloquent\Model;
@@ -10,8 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Usuario extends Model implements UsuarioInterface
 {
-    use UsuarioTrait;
-
     protected $table = 'usuarios';
 
     protected $fillable = [
@@ -40,7 +37,9 @@ class Usuario extends Model implements UsuarioInterface
 
     public function saca(float $valor): void
     {
-        $this->validaValor($valor);
+        if ($valor < 0) {
+            throw new DomainException('Não é possivel transferir valor negativo');
+        };
 
         $carteira = $this->buscaCarteira()->first();
 
@@ -55,7 +54,9 @@ class Usuario extends Model implements UsuarioInterface
 
     public function deposita(Usuario $beneficiario, float $valor): void
     {
-        $this->validaValor($valor);
+        if ($valor < 0) {
+            throw new DomainException('Não é possivel transferir valor negativo');
+        };
 
         $carteira = $beneficiario->buscaCarteira()->first();
 
