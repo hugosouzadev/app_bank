@@ -9,15 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class UsuarioController extends Controller
 {
-    public function efetuaTransferencia(Request $request): string
+    public function efetuaTransferencia(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'value' => 'required|numeric',
             'payer' => 'required|numeric',
             'payee' => 'required|numeric'
         ], [
-            'required' => "':attribute' e nao informado",
-            'numeric' => "':attribute' deve ser numerico"
+            'required' => "Não informado",
+            'numeric' => "Deve ser númerico"
         ]);
 
         if ($validator->fails()) {

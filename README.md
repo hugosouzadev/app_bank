@@ -20,5 +20,5 @@ Para entender melhor a funcionalidade do sistema leia a [documentação](https:/
 - Configure a raiz as varivaveis do MySQL dentro do arquivo **.env.example**.
 - Dentro da pasta **infra\app**, configure o arquivo **.env.example** com as dados do seu ambiente laravel.
 - Execute o arquivo **docker-compose.yml** na raíz do projeto.
-- Execute Migrations e Seeders
+- Execute as migrations e rode a seeder **Database**. (obs.: Usuarios comum são com ID's Pares e lojistas Impares)
 - Agora é só executar os testes e pronto.
