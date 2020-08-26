@@ -25,7 +25,7 @@ class UsuarioController extends Controller
         }
 
         $data = $request->all();
-        $transferenciaService = new TransferenciaService($data['payee'], $data['payer'], $data['value']);
+        $transferenciaService = new TransferenciaService($data['payer'], $data['payee'], $data['value']);
         $response = $transferenciaService->processaTransferencia();
 
         if (!$response['status']) {

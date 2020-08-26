@@ -12,8 +12,8 @@ class UsuarioControllerTest extends TransactionTestCase
     public function testRequisicaPassandoValoresInteiros()
     {
         $response = $this->postJson('/transaction', [
-            'payer' => 1,
-            'payee' => 2,
+            'payer' => 2,
+            'payee' => 1,
             'value' => 50.0
         ]);
 
