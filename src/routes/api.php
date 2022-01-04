@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('API')->group(function () {
+Route::namespace('/api')->group(function () {
+    Route::get('/health', function() {
+        echo "Ok";
+    });
     Route::post('/transaction', 'UsuarioController@efetuaTransferencia');
 });
