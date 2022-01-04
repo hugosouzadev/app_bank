@@ -1,36 +1,48 @@
 version: "3"
 services:
   app:
-    container_name: InstantTransfer
+    container_name: api.it
     build:
-      context: ./infra/app
-      dockerfile: Dockerfile
+      context: ./infra/docker
     env_file:
-      - ./infra/app/.env
-    privileged: true
-    networks:
-      appnetwork:
-        ipv4_address: 172.21.0.2
-    ports:
-      - "81:80"
+      - ./src/.env
+    volumes:
+      - ./src:/app
     depends_on:
       - mysql
+    networks:
+      - bubble
+
+  nginx:
+    container_name: server.it
+    image: nginx:1.19.2-alpine
+    working_dir: /app
     volumes:
-      - ./src:/var/www/app
+      - ./src:/app
+      - ./infra/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - app
+    ports:
+      - "81:80"
+      - "442:443"
+    depends_on:
+      - app
+    networks:
+      - bubble
+
   mysql:
-    container_name: InstantTransfer-db
+    container_name: db.it
     image: mysql:8.0.17
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_NAME_DATABASE}
-    networks:
-      appnetwork:
-        ipv4_address: 172.21.0.3
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: transfee
+      MYSQL_USER: user
+      MYSQL_PASSWORD: transfeedb
     ports:
-      - "${MYSQL_EXTERNAL_PORT}:3306"
+      - "3398:3306"
+    networks:
+      - bubble
+
 networks:
-  appnetwork:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.21.0.4/24"
+  bubble:
+    external: true
