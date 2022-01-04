@@ -10,6 +10,7 @@ services:
     volumes:
       - ./src:/app
     depends_on:
+      - redis
       - mysql
     networks:
       - bubble
@@ -43,6 +44,12 @@ services:
       - "3398:3306"
     networks:
       - bubble
+
+  redis:
+    container_name: redis.it
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
 
 networks:
   bubble:
