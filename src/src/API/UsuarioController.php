@@ -12,6 +12,7 @@ class UsuarioController extends Controller
 {
     public function efetuaTransferencia(Request $request)
     {
+        dd('lala');
         $validator = Validator::make($request->all(), [
             'value' => 'required|numeric',
             'payer' => 'required|numeric',
