@@ -15,8 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('/api')->group(function () {
-    Route::get('/health', function() {
+    Route::get('/health', function () {
         echo "Ok";
+    });
+    Route::get('/pub', function () {
+        try {
+            for ($i= 0 ; $i < 10 ; $i++){
+            $payload = new Junges\Kafka\Message\Message(
+                headers: ['header' => 'headers'],
+                body: ["id" => $i, 'name' => 'name'],
+                key: Ramsey\Uuid\Uuid::uuid4()
+            );
+
+            \Junges\Kafka\Facades\Kafka::publishOn('consumer-topic')->withDebugEnabled()
+                ->withMessage($payload)->send();
+            }
+        } catch (Throwable $exception) {
+            dd($exception);
+        }
     });
     Route::post('/transaction', 'UsuarioController@efetuaTransferencia');
 });
