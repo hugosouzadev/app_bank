@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Interfaces;
+namespace Transfee\Infrastructure\Interfaces;
 
-use App\Domain\Entities\Usuario\Usuario;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Transfee\Domain\Entities\Usuario\Usuario;
 
 interface UsuarioInterface
 {

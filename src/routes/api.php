@@ -13,22 +13,22 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/health', function () {
+    echo "Ok";
+});
 
-Route::namespace('/api')->group(function () {
-    Route::get('/health', function () {
-        echo "Ok";
-    });
+Route::group(["prefix" => "/api", "namespace" => '\\Transfee\\API'], function () {
     Route::get('/pub', function () {
         try {
-            for ($i= 0 ; $i < 10 ; $i++){
-            $payload = new Junges\Kafka\Message\Message(
-                headers: ['header' => 'headers'],
-                body: ["id" => $i, 'name' => 'name'],
-                key: Ramsey\Uuid\Uuid::uuid4()
-            );
+            for ($i = 0; $i < 10; $i++) {
+                $payload = new Junges\Kafka\Message\Message(
+                    headers: ['header' => 'headers'],
+                    body: ["id" => $i, 'name' => 'name'],
+                    key: Ramsey\Uuid\Uuid::uuid4()
+                );
 
-            \Junges\Kafka\Facades\Kafka::publishOn('consumer-topic')->withDebugEnabled()
-                ->withMessage($payload)->send();
+                \Junges\Kafka\Facades\Kafka::publishOn('consumer-topic')->withDebugEnabled()
+                    ->withMessage($payload)->send();
             }
         } catch (Throwable $exception) {
             dd($exception);

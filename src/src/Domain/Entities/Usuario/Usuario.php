@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\Entities\Usuario;
+namespace Transfee\Domain\Entities\Usuario;
 
-use App\Infrastructure\Interfaces\UsuarioInterface;
 use DomainException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Transfee\Infrastructure\Interfaces\UsuarioInterface;
 
 class Usuario extends Model implements UsuarioInterface
 {
@@ -21,7 +21,7 @@ class Usuario extends Model implements UsuarioInterface
 
     public function buscaCarteira(): HasOne
     {
-        return $this->hasOne(\App\Domain\Entities\Carteira\Carteira::class, 'usuarioId');
+        return $this->hasOne(\Transfee\Domain\Entities\Carteira\Carteira::class, 'usuarioId');
     }
 
     public function buscaPorId(int $id): Usuario

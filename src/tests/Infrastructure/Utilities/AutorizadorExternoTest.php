@@ -2,8 +2,8 @@
 
 namespace Tests\Infrastructure\Utilities;
 
-use App\Infrastructure\Utilities\AutorizadorExterno;
 use Tests\TestCase;
+use Transfee\Infrastructure\Utilities\AutorizadorExterno;
 
 class AutorizadorExternoTest extends TestCase
 {

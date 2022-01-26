@@ -37,7 +37,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Transfee\\": "src/"
         },
         "classmap": [
             "database/seeds",

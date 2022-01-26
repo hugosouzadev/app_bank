@@ -2,10 +2,10 @@
 
 namespace Tests\Domain\Entities\Usuario;
 
-use App\Domain\Entities\Usuario\Comum;
-use App\Domain\Entities\Usuario\Usuario;
 use DomainException;
 use Tests\TransactionTestCase;
+use Transfee\Domain\Entities\Usuario\Comum;
+use Transfee\Domain\Entities\Usuario\Usuario;
 use TypeError;
 
 class ComumTest extends TransactionTestCase

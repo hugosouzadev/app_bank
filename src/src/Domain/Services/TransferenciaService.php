@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Domain\Services;
+namespace Transfee\Domain\Services;
 
-use App\Domain\Entities\Usuario\Comum;
-use App\Domain\Entities\Usuario\Usuario;
-use App\Infrastructure\Interfaces\TransferenciaInterface;
-use App\Infrastructure\Utilities\AutorizadorExterno;
-use App\Infrastructure\Utilities\ServicoNotificacao;
+use App\Domain\Services\floar;
+use App\Domain\Services\Throwable;
 use DomainException;
 use Illuminate\Support\Facades\DB;
+use Transfee\Domain\Entities\Usuario\Comum;
+use Transfee\Domain\Entities\Usuario\Usuario;
+use Transfee\Infrastructure\Interfaces\TransferenciaInterface;
+use Transfee\Infrastructure\Utilities\AutorizadorExterno;
+use Transfee\Infrastructure\Utilities\ServicoNotificacao;
 
 class TransferenciaService implements TransferenciaInterface
 {

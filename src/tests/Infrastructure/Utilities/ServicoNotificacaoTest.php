@@ -2,8 +2,8 @@
 
 namespace Tests\Infrastructure\Utilities;
 
-use App\Infrastructure\Utilities\ServicoNotificacao;
 use Tests\TestCase;
+use Transfee\Infrastructure\Utilities\ServicoNotificacao;
 
 class ServicoNotificacaoTest extends TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-use App\Domain\Entities\Carteira\Carteira;
-use App\Domain\Entities\Usuario\Usuario;
 use Illuminate\Database\Seeder;
+use Transfee\Domain\Entities\Carteira\Carteira;
+use Transfee\Domain\Entities\Usuario\Usuario;
 
 class UsuariosSeeder extends Seeder
 {

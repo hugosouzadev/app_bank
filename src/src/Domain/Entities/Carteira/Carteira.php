@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Entities\Carteira;
+namespace Transfee\Domain\Entities\Carteira;
 
 use Illuminate\Database\Eloquent\Model;
 
