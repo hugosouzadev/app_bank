@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Utilities;
+namespace Transfee\Infrastructure\Utilities;
 
-use App\Infrastructure\Interfaces\AutorizadorInterface;
 use GuzzleHttp\Exception\RequestException;
+use Transfee\Infrastructure\Interfaces\AutorizadorInterface;
 
 class AutorizadorExterno implements AutorizadorInterface
 {

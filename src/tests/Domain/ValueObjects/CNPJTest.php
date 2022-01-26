@@ -2,9 +2,9 @@
 
 namespace Tests\Domain\ValueObjects;
 
-use App\Domain\ValueObjects\CNPJ;
 use DomainException;
 use Tests\TestCase;
+use Transfee\Domain\ValueObjects\CNPJ;
 
 class CNPJTest extends TestCase
 {

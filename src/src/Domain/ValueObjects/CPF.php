@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\ValueObjects;
+namespace Transfee\Domain\ValueObjects;
 
-use App\Infrastructure\Interfaces\DocumentoInterface;
 use DomainException;
+use Transfee\Infrastructure\Interfaces\DocumentoInterface;
 
 class CPF implements DocumentoInterface
 {

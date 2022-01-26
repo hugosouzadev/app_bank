@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Interfaces;
+namespace Transfee\Infrastructure\Interfaces;
 
 interface TransferenciaInterface
 {

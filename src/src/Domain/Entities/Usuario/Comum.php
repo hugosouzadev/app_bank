@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Entities\Usuario;
+namespace Transfee\Domain\Entities\Usuario;
 
 use DomainException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Transfee\Commands;
 
 use Illuminate\Support\Facades\Log;
 use Junges\Kafka\Contracts\Consumer;

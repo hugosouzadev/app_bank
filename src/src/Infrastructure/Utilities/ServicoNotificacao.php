@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Utilities;
+namespace Transfee\Infrastructure\Utilities;
 
-use App\Infrastructure\Interfaces\NotificacaoInterface;
 use GuzzleHttp\Exception\RequestException;
+use Transfee\Infrastructure\Interfaces\NotificacaoInterface;
 
 class ServicoNotificacao implements NotificacaoInterface
 {

@@ -1,6 +1,8 @@
+# Producers
 consumer-topic:
 	- docker exec -it api.it php artisan start:consumer
 
+# Consumers
 consumer-topic-dlq:
 	- docker exec -it api.it php artisan kafka:consume --consumer=\\App\\Console\\Commands\\ConsumerTestDLQCommand --topics=consumer-topic-dlq
 

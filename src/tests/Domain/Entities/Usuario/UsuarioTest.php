@@ -2,9 +2,9 @@
 
 namespace Tests\Domain\Entities\Usuario;
 
-use App\Domain\Entities\Usuario\Usuario;
 use DomainException;
 use Tests\TransactionTestCase;
+use Transfee\Domain\Entities\Usuario\Usuario;
 use TypeError;
 
 class UsuarioTest extends TransactionTestCase

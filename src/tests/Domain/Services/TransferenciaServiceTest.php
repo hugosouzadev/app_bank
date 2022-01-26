@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Services;
 
-use App\Domain\Services\TransferenciaService;
 use Tests\TransactionTestCase;
+use Transfee\Domain\Services\TransferenciaService;
 
 class TransferenciaServiceTest extends TransactionTestCase
 {

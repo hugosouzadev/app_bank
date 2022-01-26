@@ -2,9 +2,9 @@
 
 namespace Tests\Domain\ValueObjects;
 
-use App\Domain\ValueObjects\CPF;
 use DomainException;
 use Tests\TestCase;
+use Transfee\Domain\ValueObjects\CPF;
 
 class CPFTest extends TestCase
 {
